@@ -202,6 +202,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
+- 3/24: **study 앱 clasp 설정 완료**. .clasp.json 생성 + appsscript.json pull + Code.js rootFolder 'study' 갱신 + clasp push + 수동 배포 완료. L-04 교훈 적용 (수동 재배포 필수).
 - 3/24: CLAUDE.md → playbook.md 이름 변경. claude-config → playbook-config. 전 프로젝트 AGENTS.md 경로 갱신 (7개). study 이름 변경 완료 (GitHub lang-app→study, 로컬→C:\dev\apps\study\, Google Drive→apps/study/, manifest Lang→Study, gas/Code.js rootFolder→study). Google Drive docs/ 폴더 구조 정리 (navi, reading, personal).
 - 3/24: claude-config 레포 생성, CLAUDE.md 이동. L-09 추가 (문서 비대화 방지). I-01 범위 확장 (CLAUDE.md 경량화 포함, 실행 기준 수치 추가).
 - 3/23: CLAUDE.md 최초 생성. 프로젝트 맵 7개, 백로그 8건+아이디어 3건, 교훈 8건, 검증 3단계, Haiku 규칙, 우선순위 프레임워크.
