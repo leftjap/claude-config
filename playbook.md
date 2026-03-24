@@ -104,6 +104,7 @@
 | I-01 | 전체 | 문서 경량화: ①AGENTS.md → 핵심 규칙만 남기고 참조 정보를 AGENTS-ref.md로 분리. ②playbook.md → 백로그 상세를 backlog.md로 분리, Haiku 규칙(6번)을 haiku-rules.md로 분리. 루트 문서는 라우터+요약만 유지 | A방식(분리) 확정. 기준: always-on 100줄 이하, instruction budget ~100개. P0 버그 해소 직후 실행. 분리 파일은 playbook-config 레포에 배치 |
 | I-02 | 전체 | 웹앱 AGENTS.md 공통 섹션 템플릿화 | |
 | I-03 | 어학 | Phase 2 이후 전체 (할 게 많음 — 별도 세션에서 분해) | |
+| I-04 | 전체 | Claude Code 데스크톱 앱 토큰 소비 비교 테스트. 동일 작업을 VS Code Haiku vs 데스크톱 Haiku로 실행하여 비교 | 레포 이름 정리 후 실시 |
 
 ---
 
@@ -203,7 +204,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
-- 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 2건 저장: keep 이름 결정, 습관 트래킹 vs 전용 앱 (notes/2026-03-24_*.md).
+- 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 3건 저장(keep 이름 결정, 습관 트래킹 vs 전용 앱, Claude Code 데스크톱 검토). 프로젝트 맵에 keep 추가(글쓰기 교체). B-20(keep 리네이밍), I-04(데스크톱 앱 토큰 비교) 등록.
 - 3/24: 글쓰기 대시보드 앱 이름 `keep`으로 확정 (글쓰기+가계부+루틴). 프로젝트 맵에서 글쓰기→keep 교체. 리네이밍 셋업 B-20 등록.
 - 3/24: 이름표 app.js showApp()의 loadAll 경로에서 SYNC.isDbLoaded 미설정 버그 수정. localOnly expenses 재전송이 isDbLoaded 가드에 막혀 서버에 도달 못하던 근본 원인.
 - 3/24: 이름표 가계부 캘린더 날짜 꾹누르기 삭제 기능 추가. 운동앱 터치 핸들러 패턴 적용 (touchstart 600ms, 짧은탭/롱프레스 분기, user-select:none).
