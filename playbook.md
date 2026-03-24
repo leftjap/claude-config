@@ -34,7 +34,7 @@
 - 사용자에게 "직접 넣으시겠습니까?"라고 묻지 않는다.
 
 갱신 방법:
-  cd "C:\dev\playbook-config"
+  cd "C:\dev\playbook"
   git add playbook.md
   git commit -m "update: playbook.md [변경 요약]"
   git push origin main
@@ -65,7 +65,7 @@
 | 서재 어구록 | `C:\dev\docs\서재\` | `leftjap/docs` | 있음 | quote_tags 반영 대기 |
 | 오늘의내비 | `C:\dev\docs\오늘의내비\` | `leftjap/docs` | 있음 | 운영 중 |
 | 운동 | `C:\dev\apps\gym\` | `leftjap/gym` | 있음 | MVP 실사용 중, 버그 다수 |
-| 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간 |
+| 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간. tts-server: `C:\dev\apps\study\tts-server\` |
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | 있음 | 문서 수시 갱신 |
 | keep | `C:\dev\apps\keep\` | `leftjap/keep` | 미생성 | 이름 확정, 셋업 대기 |
 
@@ -95,7 +95,6 @@
 | B-17 | 이름표 | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
 | B-18 | 이름표+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 이름표 GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
-| B-20 | keep | 리네이밍 셋업 (레포·로컬 폴더·Drive·manifest·AGENTS.md) | P1 | 기존 앱에서 이름 변경. gym·study 리네이밍과 동일 패턴 |
 
 ### ⚪ 아이디어
 
@@ -104,7 +103,7 @@
 | I-01 | 전체 | 문서 경량화: ①AGENTS.md → 핵심 규칙만 남기고 참조 정보를 AGENTS-ref.md로 분리. ②playbook.md → 백로그 상세를 backlog.md로 분리, Haiku 규칙(6번)을 haiku-rules.md로 분리. 루트 문서는 라우터+요약만 유지 | A방식(분리) 확정. 기준: always-on 100줄 이하, instruction budget ~100개. P0 버그 해소 직후 실행. 분리 파일은 playbook-config 레포에 배치 |
 | I-02 | 전체 | 웹앱 AGENTS.md 공통 섹션 템플릿화 | |
 | I-03 | 어학 | Phase 2 이후 전체 (할 게 많음 — 별도 세션에서 분해) | |
-| I-04 | 전체 | Claude Code 데스크톱 앱 토큰 소비 비교 테스트. 동일 작업을 VS Code Haiku vs 데스크톱 Haiku로 실행하여 비교 | 레포 이름 정리 후 실시 |
+| I-04 | 전체 | Claude Code 데스크톱 앱 토큰 소비 비교 테스트. 동일 작업을 VS Code Haiku vs 데스크톱 Haiku로 실행하여 비교 | keep 리네이밍 완료(B-20), keep 앱 셋업 후 실시 |
 
 ---
 
@@ -202,8 +201,31 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ---
 
-## 7. 변경 이력
+## 7. 작업지시서 작성 및 실행 원칙
 
+### 실행 규칙
+
+- 상단에 반드시 명시: `# 즉시 실행. 질문하지 말 것. 오류 시에만 보고.`
+- 각 단계: 번호 + 명령 + 예상 결과(성공/실패)
+- 변수는 상단에 명시적 정의 (placeholder 금지, copy-paste ready)
+- 마지막에 검증 체크리스트 포함
+
+### 분리 규칙
+
+- 실행 파트 (PowerShell/CLI): 실행 후 삭제
+- 기록 파트 (의사결정 요약): list/에 세션노트로 저장
+
+### 작성 워크플로
+
+- 대화로 요구사항 확정 → 최종 작업지시서 1회 작성
+- 추가사항 발생 시 패치하지 않고 전체 재작성 (최종본 항상 1개)
+- 작성 완료 시 "최종 작업지시서" 선언 후 사용자 실행 지시 대기
+
+---
+
+## 8. 변경 이력
+
+- 3/25: **B-20 keep 리네이밍 셋업 완료**. playbook-config→playbook, notes→list. playbook.md, 심링크, GitHub remote 갱신. list/README.md→INDEX.md 통합. 세션노트 1건 저장. 작업지시서 원칙 섹션 추가.
 - 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 3건 저장(keep 이름 결정, 습관 트래킹 vs 전용 앱, Claude Code 데스크톱 검토). 프로젝트 맵에 keep 추가(글쓰기 교체). B-20(keep 리네이밍), I-04(데스크톱 앱 토큰 비교) 등록.
 - 3/24: 글쓰기 대시보드 앱 이름 `keep`으로 확정 (글쓰기+가계부+루틴). 프로젝트 맵에서 글쓰기→keep 교체. 리네이밍 셋업 B-20 등록.
 - 3/24: 이름표 app.js showApp()의 loadAll 경로에서 SYNC.isDbLoaded 미설정 버그 수정. localOnly expenses 재전송이 isDbLoaded 가드에 막혀 서버에 도달 못하던 근본 원인.
