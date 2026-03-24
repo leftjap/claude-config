@@ -203,6 +203,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 
 ## 7. 변경 이력
 
+- 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 2건 저장: keep 이름 결정, 습관 트래킹 vs 전용 앱 (notes/2026-03-24_*.md).
 - 3/24: 글쓰기 대시보드 앱 이름 `keep`으로 확정 (글쓰기+가계부+루틴). 프로젝트 맵에서 글쓰기→keep 교체. 리네이밍 셋업 B-20 등록.
 - 3/24: 이름표 app.js showApp()의 loadAll 경로에서 SYNC.isDbLoaded 미설정 버그 수정. localOnly expenses 재전송이 isDbLoaded 가드에 막혀 서버에 도달 못하던 근본 원인.
 - 3/24: 이름표 가계부 캘린더 날짜 꾹누르기 삭제 기능 추가. 운동앱 터치 핸들러 패턴 적용 (touchstart 600ms, 짧은탭/롱프레스 분기, user-select:none).
