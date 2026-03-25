@@ -61,13 +61,12 @@
 
 | 프로젝트 | 경로 | 레포 | AGENTS.md | 상태 |
 |---|---|---|---|---|
-| 이름표 | `C:\dev\nametag\` | `leftjap/nametag-game` | 있음 | 운영 중. 브랜드 시스템 완료 |
 | 서재 어구록 | `C:\dev\docs\서재\` | `leftjap/docs` | 있음 | quote_tags 반영 대기 |
 | 오늘의내비 | `C:\dev\docs\오늘의내비\` | `leftjap/docs` | 있음 | 운영 중 |
 | 운동 | `C:\dev\apps\gym\` | `leftjap/gym` | 있음 | MVP 실사용 중, 버그 다수 |
 | 어학 | `C:\dev\apps\study\` | `leftjap/study` | 있음 | Phase 2 중간. tts-server: `C:\dev\apps\study\tts-server\` |
 | 크립토 | `C:\dev\docs\투자 전략\` | `leftjap/docs` | 있음 | 문서 수시 갱신 |
-| keep | `C:\dev\apps\keep\` | `leftjap/keep` | 미생성 | 이름 확정, 셋업 대기 |
+| keep | `C:\dev\apps\keep\` | `leftjap/keep` | 있음 | 운영 중. 브랜드 시스템 완료 |
 
 ---
 
@@ -90,10 +89,10 @@
 | B-12 | 운동 | 운동 종목 선택 방식 변경 | P1 | UX 개선 |
 | B-13 | 운동 | 트레드밀 등 유산소 중 세션 소실 (데이터 미저장) | P0 | 데이터 유실 |
 | B-14 | 운동 | 오류 후 새로고침 시 세션 복원 실패 (저장은 되나 연결 안 됨) | P0 | 세션 복원 로직 |
-| B-15 | 이름표 | 소연 게시물 클로드 댓글 보강 | P1 | 피드백 품질 개선 |
-| B-16 | 이름표+서재 | 어구록 DB 참조 댓글 테스트 (load_quotes 연동) | P1 | 아직 미테스트 |
-| B-17 | 이름표 | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
-| B-18 | 이름표+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 이름표 GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
+| B-15 | keep | 소연 게시물 클로드 댓글 보강 | P1 | 피드백 품질 개선 |
+| B-16 | keep+서재 | 어구록 DB 참조 댓글 테스트 (load_quotes 연동) | P1 | 아직 미테스트 |
+| B-17 | keep | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
+| B-18 | keep+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 keep GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
 
 ### ⚪ 아이디어
@@ -398,6 +397,7 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/25: **nametag-game → keep 이름 변경 완료**. GitHub leftjap/nametag-game→leftjap/keep. 로컬 C:\dev\nametag\→C:\dev\apps\keep\. Google Drive 코드 폴더 없음 (스킵). index.html title/apple-mobile-web-app-title 갱신. AGENTS.md 경로 치환. gas/Code.js 확인 (수정 없음). clasp push 완료 (변경사항 없음, 수동 재배포 대기). playbook.md 프로젝트 맵 갱신 (이명표→keep 통합, 상태→운영 중).
 - 3/25: 이름표 AGENTS.md 경로 치환 (playbook-config→playbook) 3건.
 - 3/25: **B-20 keep 리네이밍 셋업 완료**. playbook-config→playbook, notes→list. playbook.md, 심링크, GitHub remote 갱신. list/README.md→INDEX.md 통합. 세션노트 1건 저장. 작업지시서 원칙 섹션 추가.
 - 3/24: notes/ 폴더 신설 + 운영 규칙(README.md). 세션 노트 3건 저장(keep 이름 결정, 습관 트래킹 vs 전용 앱, Claude Code 데스크톱 검토). 프로젝트 맵에 keep 추가(글쓰기 교체). B-20(keep 리네이밍), I-04(데스크톱 앱 토큰 비교) 등록.
