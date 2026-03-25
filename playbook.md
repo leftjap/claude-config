@@ -152,7 +152,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다.
 | L-02 | switchTab else 블록 패널 복원 누락 | MUST: 에디터 서브 패널 복원 체크리스트 포함 | keep |
 | L-03 | gesture.js 인라인 스타일 덮어씀 | MUST: CSS !important + 전용 클래스로 대응 | keep |
 | L-04 | clasp push 후 웹앱 미반영 | MUST: 수동 재배포 안내 포함 | GAS 수정 전체 |
-| L-05 | 동기화로 더미 데이터 복귀 | MUST: 서버+로컬 양쪽 정리 + 타임스탬프 엄격 비교 | 운동 |
+| L-05 | 동기화로 더미 데이터 복귀 | MUST: 서버+로컬 양쪽 정리 + 타임스탬프 엄격 비교 | 운동, 어학 |
 | L-06 | import 시 날짜 밀림 | MUST: import 후 미래 날짜 확인 Step | keep |
 | L-07 | 멀티유저 설정 오염 | MUST: USER_CONFIG 보호 체크리스트 확인 | keep |
 | L-08 | sed/tr로 파일 소실 | MUST NOT: Unix 텍스트 도구 사용 금지. PowerShell 또는 VS Code만 | 전체 |
@@ -419,8 +419,8 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
-- 3/25: renderLastWorkoutCard fallback 조건 완화. 선택 날짜 기록 없으면 무조건 최근 세션 표시.
 - 3/25: 주간/월간 캘린더에서 기록 없는 날짜 탭 차단. hasData 체크 추가.
 - 3/25: B-11 finishWorkout 확인 모달 추가. FINISH WORKOUT 버튼 시 완료 세트 수 표시 + 확인/취소 선택.
 - 3/25: 세션 복원 UX 변경. 새로고침/복귀 시 운동 화면 직접 진입 → 홈 + CONTINUE 버튼으로 수정. 사용자가 상황 인지 후 선택.
 - 3/25: **study AGENTS.md 경량화 완료** (1,130줄→530줄). 함수맵/호출체인/전역변수/스키마/Phase진행/콘솔레퍼런스 삭제. 경로 수정. 레포명 갱신. I-01 방향 적용.
+- 3/25: **study sync.js 병합 방식 전환**. loadBothLangs에서 서버 데이터 무조건 덮어쓰기 → mergeLangData()로 ID 기반 병합. saveToServer 재시도(5초/15초/45초) 추가. gym 3/19 데이터 유실 사고 예방 적용.
