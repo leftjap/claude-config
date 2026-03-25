@@ -14,6 +14,21 @@
 3. 사용자가 작업을 지정하면 해당 프로젝트의 AGENTS.md로 라우팅한다.
 4. 사용자가 "오늘 뭐 하지?"라고 하면 우선순위 프레임워크(5번)로 제안한다.
 
+### 상태 점검 프로토콜
+
+사용자가 현황 파악을 요청하면 ("완료된 거 뭐야", "오늘 뭐 하지?" 등):
+
+1. playbook.md만으로 답하지 않는다
+2. GitHub API를 확인한다:
+   - 1단계: Events API (1회) → 전 레포 활동 개요
+     `GET https://api.github.com/users/leftjap/events?per_page=30`
+   - 2단계: 변동 레포만 Commits API → 커밋 메시지 확인
+     `GET https://api.github.com/repos/leftjap/{repo}/commits?since={날짜}&per_page=5`
+3. playbook.md 기재 내용과 실제 커밋을 대조하여 차이를 보고한다
+4. 갱신이 필요하면 갱신 내용을 함께 제시한다
+
+비인증 rate limit: 60회/시간. 상태 점검 1회에 최대 5~6회 사용.
+
 ### 세션 중 라우팅
 
 - 작업 대상이 정해지면 → 해당 프로젝트 AGENTS.md를 업로드하거나 AI가 크롤링한다.
@@ -403,11 +418,8 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/25: C:\dev\playbook.md 링크 제거, 원본 경로(C:\dev\playbook\playbook.md) 통일. 상태 점검 프로토콜 추가 (GitHub Events/Commits API 확인 의무화).
 - 3/25: **소연 전용 URL 분리 완료** (sy/index.html + localStorage 키 접두사). leftjap은 /keep/, 소연은 /keep/sy/로 진입. L/S 함수에 _LS_PREFIX 추가, 직접 localStorage 호출에 접두사 적용.
 - 3/25: 어학앱 복습 판정 UI 방향 확정. 도형 3종 → 어려움/보통/쉬움 텍스트 라벨. 틀린 카드 자동 분기 추가. Leitner 3-Box + FSRS 2버튼 논의 조사 후 결정.
 - 3/25: **study AGENTS.md 경량화 완료** (1,130줄→530줄). 함수맵/호출체인/전역변수/스키마/Phase진행/콘솔레퍼런스 삭제. 경로 수정. 레포명 갱신. I-01 방향 적용.
 - 3/25: **gym AGENTS.md 경량화 완료** (1,200줄→470줄). 함수맵/호출체인/스키마/전역변수/진행상황/이력 삭제. 규칙+교훈+디자인가이드만 유지. I-01 방향 적용.
-- 3/25: **nametag-game → keep 이름 변경 완료**. GitHub leftjap/nametag-game→leftjap/keep. 로컬→C:\dev\apps\keep\. AGENTS.md 경로 치환. playbook.md 프로젝트 맵 갱신.
-- 3/25: 이름표 AGENTS.md 경로 치환 (playbook-config→playbook) 3건.
-- 3/24: claude-config 레포 생성, CLAUDE.md 이동. L-09 추가 (문서 비대화 방지). I-01 범위 확장 (CLAUDE.md 경량화 포함, 실행 기준 수치 추가).
-- 3/23: CLAUDE.md 최초 생성. 프로젝트 맵 7개, 백로그 8건+아이디어 3건, 교훈 8건, 검증 3단계, Haiku 규칙, 우선순위 프레임워크.
