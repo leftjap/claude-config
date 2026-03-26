@@ -425,8 +425,8 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/26: 삭제 함수(deleteSession, deleteSessionsByDate, deleteExerciseFromSession)에 syncToServer 호출 추가. 로컬 삭제 후 서버 미반영으로 syncFromServer 시 데이터 부활하던 버그 수정.
 - 3/25: B-10 추가 수정. 빠른 스와이프 뒤로가기 시 빈 화면 버그. cleanup 함수에 confirmed 파라미터 추가하여 확정 시 peekEl.display를 복원하지 않도록 수정.
 - 3/25: B-12 종목 부위 이동 구현. 롱프레스 드래그→부위 탭 드롭. partOverride 맵으로 기본 종목 bodyPart 오버라이드. 커스텀 종목은 bodyPart 직접 변경. renderSettingsExerciseList에 "XX에서 이동" 표시. sync 반영은 별도.
 - 3/25: B-11 finishWorkout 확인 모달 추가. FINISH WORKOUT 버튼 시 완료 세트 수 표시 + 확인/취소 선택.
 - 3/25: 세션 복원 UX 변경. 새로고침/복귀 시 운동 화면 직접 진입 → 홈 + CONTINUE 버튼으로 수정. 사용자가 상황 인지 후 선택.
-- 3/25: 종목 카드 좌우 스와이프 시 화면 흔들림 수정. bindCardSwipe touchmove를 passive:false로 변경, 좌우 확정 시 preventDefault 호출.
