@@ -426,8 +426,8 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/26: B-22 종목 선택 UI 수정 4건 — 상단 패딩 홈과 일치, hidden 종목 선택 영역에서 자동 제거, 선택 영역 하단 고정(flex 레이아웃), 칩 선택 색상을 연한 회색+짙은 테두리로 변경.
 - 3/26: B-22 Phase 1-A 완료. 종목 선택 화면(칩 UI + 하단 선택 영역). 부위 순서 변경(등→가슴→어깨→하체→팔→기타). 홈과 동일 상단 패딩/더보기 버튼.
 - 3/26: 삭제 함수(deleteSession, deleteSessionsByDate, deleteExerciseFromSession)에 syncToServer 호출 추가. 로컬 삭제 후 서버 미반영으로 syncFromServer 시 데이터 부활하던 버그 수정.
 - 3/25: B-10 추가 수정. 빠른 스와이프 뒤로가기 시 빈 화면 버그. cleanup 함수에 confirmed 파라미터 추가하여 확정 시 peekEl.display를 복원하지 않도록 수정.
 - 3/25: B-12 종목 부위 이동 구현. 롱프레스 드래그→부위 탭 드롭. partOverride 맵으로 기본 종목 bodyPart 오버라이드. 커스텀 종목은 bodyPart 직접 변경. renderSettingsExerciseList에 "XX에서 이동" 표시. sync 반영은 별도.
-- 3/25: B-11 finishWorkout 확인 모달 추가. FINISH WORKOUT 버튼 시 완료 세트 수 표시 + 확인/취소 선택.
