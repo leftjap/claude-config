@@ -117,6 +117,7 @@
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
 | B-20 | keep | keep 앱 관리자 모드 추가 (현재 소연과 같은 URL 공유 — 시크릿창으로만 계정 전환 가능) | P2 | 인수인계서 4번 미결 사항 |
 | B-21 | 운동 | 트레드밀 유산소 카드 UX: ①1회 완료 후 버튼 "추가 시작"→"다시 시작" ②직접 입력(분) 비활성화 해제 | P1 | 유산소 UX 개선 |
+| B-22 | 운동 | 운동 화면 UX 개편 Phase 1-B~4-C | P1 | Phase 1-A 완료. 종목 선택 화면 구현. 다음: 1-B 운동 시작 흐름 연결 |
 
 ### ⚪ 아이디어
 
@@ -425,8 +426,8 @@ $file = '[파일 절대 경로]'
 
 ## 8. 변경 이력
 
+- 3/26: B-22 Phase 1-A 완료. 부위 선택 화면을 종목 선택 화면(부위 탭+종목 체크박스)으로 교체. 직전 세션 기반 기본 체크 로직 구현.
 - 3/26: 삭제 함수(deleteSession, deleteSessionsByDate, deleteExerciseFromSession)에 syncToServer 호출 추가. 로컬 삭제 후 서버 미반영으로 syncFromServer 시 데이터 부활하던 버그 수정.
 - 3/25: B-10 추가 수정. 빠른 스와이프 뒤로가기 시 빈 화면 버그. cleanup 함수에 confirmed 파라미터 추가하여 확정 시 peekEl.display를 복원하지 않도록 수정.
 - 3/25: B-12 종목 부위 이동 구현. 롱프레스 드래그→부위 탭 드롭. partOverride 맵으로 기본 종목 bodyPart 오버라이드. 커스텀 종목은 bodyPart 직접 변경. renderSettingsExerciseList에 "XX에서 이동" 표시. sync 반영은 별도.
 - 3/25: B-11 finishWorkout 확인 모달 추가. FINISH WORKOUT 버튼 시 완료 세트 수 표시 + 확인/취소 선택.
-- 3/25: 세션 복원 UX 변경. 새로고침/복귀 시 운동 화면 직접 진입 → 홈 + CONTINUE 버튼으로 수정. 사용자가 상황 인지 후 선택.
