@@ -114,7 +114,6 @@
 | B-17 | keep | 지오 게시물 클로드 댓글 구현 | P2 | B-15, B-16 완료 후 |
 | B-18 | keep+서재 | 서재 발췌문 통합: quotes-data.json → app_database.json books에 흡수. 오늘의내비 피드백은 keep GAS로 엔드포인트 변경. 서재 GAS는 폐기 또는 읽기전용. LocalStorage 크기 OK (현재 0.79MB + 발췌문 ~1MB). 미결정: 발췌문 입력 UI, 태그 자동 판단 위치, 102권 마이그레이션, 마크다운 동기화 | P3 | B-01 후. 인수인계서 참조 |
 | B-19 | 서재 | 나머지 13권 quote_tags | P3 | B-01 후 |
-| B-20 | keep | keep 앱 관리자 모드 추가 (현재 소연과 같은 URL 공유 — 시크릿창으로만 계정 전환 가능) | P2 | 인수인계서 4번 미결 사항 |
 | B-21 | 운동 | 트레드밀 유산소 카드 UX: ①1회 완료 후 버튼 "추가 시작"→"다시 시작" ②직접 입력(분) 비활성화 해제 | P1 | 유산소 UX 개선 |
 | B-22 | keep | 파트너 글에 달린 댓글이 표시되지 않는 버그 | 완료 | ui.js 댓글 함수 3곳에서 localStorage 키에 _LS_PREFIX 누락 |
 | B-23 | keep | 해외 결제 내역 알림이 가계부에 반영되지 않음 | 완료 | 날짜 정규식 월(1-12)/일(1-31) 범위 검증 추가 (parseSMS + parseSMSServer). cleanMerchantName Code.js ↔ data.js 변형 통합 패턴 동기화. mergeServerAll 경쟁 조건 수정 (_merging 가드). saveDatabase _merging 가드 추가. CLAUDE.AISUBSCRIPTION → Anthropic 브랜드 매핑 추가. saveExpenseFromSMS 디버깅 로그 강화 (줄바꿈 포함 여부 기록). cleanMerchantName: 통화코드 단독 접두어(`USD MERCHANT`) 제거 패턴 추가. 서버 버그 데이터(id: 1774510715064) 정리 완료. 잔여: 다음 해외 결제 SMS 수신 시 GAS 실행 로그로 실제 원문 확인. |
@@ -132,7 +131,7 @@
 | I-01 | 전체 | 문서 경량화: ①AGENTS.md → 핵심 규칙만 남기고 참조 정보를 AGENTS-ref.md로 분리. ②playbook.md → 백로그 상세를 backlog.md로 분리, Haiku 규칙(6번)을 haiku-rules.md로 분리. 루트 문서는 라우터+요약만 유지 | A방식(분리) 확정. 기준: always-on 100줄 이하, instruction budget ~100개. P0 버그 해소 직후 실행. 분리 파일은 playbook-config 레포에 배치 |
 | I-02 | 전체 | 웹앱 AGENTS.md 공통 섹션 템플릿화 | |
 | I-03 | 어학 | Phase 2 이후 전체 (할 게 많음 — 별도 세션에서 분해) | |
-| I-04 | 전체 | Claude Code 데스크톱 앱 토큰 소비 비교 테스트. 동일 작업을 VS Code Haiku vs 데스크톱 Haiku로 실행하여 비교 | keep 리네이밍 완료(B-20), keep 앱 셋업 후 실시 |
+| I-04 | 전체 | Claude Code 데스크톱 앱 토큰 소비 비교 테스트. 동일 작업을 VS Code Haiku vs 데스크톱 Haiku로 실행하여 비교 | keep 리네이밍 완료, keep 앱 셋업 후 실시 |
 
 ---
 
