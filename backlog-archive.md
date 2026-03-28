@@ -17,3 +17,4 @@
 | B-35 | keep | 파트너 모드 LocalStorage 오염 방지 | 3/27 | enterPartnerMode()에서 LocalStorage 쓰기 제거, data.js에 파트너 모드 분기, 동기화 차단 |
 | B-36 | keep | GAS 다세대 백업 + 무결성 검증 | 3/27 | 1일1회 7일분 날짜별 백업, expenses 급변 차단, 수동 복원 유틸 |
 | B-37 | keep | saveDatabase 카드 교차 오염 검증 | 3/27 | OWNER_CARDS 매핑으로 타 사용자 카드 감지 시 저장 차단 |
+| B-45 | playbook | CLAUDE.md 생성 + 세션 종료 규칙 보강 + 작업환경 섹션 | 3/28 | 완료 |
