@@ -107,8 +107,6 @@
 
 | ID | 내용 | 메모 |
 |---|---|---|
-| I-01 | 문서 경량화 | 진행 중 — 이 작업 |
-| I-02 | 웹앱 AGENTS.md 공통 섹션 템플릿화 | I-01로 해소 |
 | I-03 | 어학 Phase 2 이후 전체 | 별도 세션 분해 |
 | I-04 | Claude Code 토큰 소비 비교 테스트 | keep 셋업 후 |
 
@@ -180,5 +178,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 실행 — common-rules.md 신규, backlog-archive.md 신규, playbook.md ~200줄로 축소, 완료 백로그 9건 아카이브, 섹션 7(작업지시서 공통 규칙) common-rules.md로 이관
+- 3/28: I-01 문서 경량화 완료 — common-rules.md·backlog-archive.md 신규, playbook/AGENTS.md 경량화, CLAUDE.md 3개 프로젝트 생성/교체. B-43 완료 (구식 내용 정리)
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수
