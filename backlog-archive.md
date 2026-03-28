@@ -1,6 +1,6 @@
 # backlog-archive.md — 완료 백로그 아카이브
 
-> playbook.md에서 완료 확인된 백로그를 이관한 문서. 원본은 git log에 보존.
+> opus.md에서 완료 확인된 백로그를 이관한 문서. 원본은 git log에 보존.
 
 ---
 

@@ -1,4 +1,4 @@
-# playbook.md — 크로스 프로젝트 오퍼레이션
+# opus.md — 크로스 프로젝트 오퍼레이션
 
 > 이 문서는 AI의 운영 체제다. "뭘 할지" 결정하고 "어떻게 할지"로 라우팅한다.
 > 프로젝트별 상세 규칙은 각 AGENTS.md가 담당한다.
@@ -18,11 +18,11 @@
 
 | 문서 | 읽는 주체 | 역할 |
 |---|---|---|
-| playbook.md + common-rules.md | Opus | 설계·작업지시서 생성 규칙 |
+| opus.md + common-rules.md | Opus | 설계·작업지시서 생성 규칙 |
 | AGENTS.md | Opus | 프로젝트별 고유 규칙·파일 구조 |
 | CLAUDE.md | Haiku | 코딩 시 프로젝트별 주의사항 (상시 자동 로드) |
 
-작업지시서는 Haiku가 읽는다 — Opus 수준 추론 가정 금지. 세션은 독립적 — 매 세션 playbook.md 업로드 필수. 작업환경 상세는 common-rules.md 섹션 12 참조.
+작업지시서는 Haiku가 읽는다 — Opus 수준 추론 가정 금지. 세션은 독립적 — 매 세션 opus.md 업로드 필수. 작업환경 상세는 common-rules.md 섹션 12 참조.
 
 ### 응답 톤
 
@@ -43,13 +43,13 @@ AI의 응답은 **간결한 경어체**로 작성한다. 작업지시서·방향
 
 사용자가 현황 파악을 요청하면:
 
-1. playbook.md만으로 답하지 않는다
+1. opus.md만으로 답하지 않는다
 2. GitHub API를 확인한다:
    - 1단계: Events API (1회) → 전 레포 활동 개요
      `GET https://api.github.com/users/leftjap/events?per_page=30`
    - 2단계: 변동 레포만 Commits API → 커밋 메시지 확인
      `GET https://api.github.com/repos/leftjap/{repo}/commits?since={날짜}&per_page=5`
-3. playbook.md 기재 내용과 실제 커밋을 대조하여 차이를 보고한다
+3. opus.md 기재 내용과 실제 커밋을 대조하여 차이를 보고한다
 4. 갱신이 필요하면 갱신 내용을 함께 제시한다
 
 비인증 rate limit: 60회/시간. 상태 점검 1회에 최대 5~6회 사용.
@@ -58,24 +58,24 @@ AI의 응답은 **간결한 경어체**로 작성한다. 작업지시서·방향
 
 - 소스 파일 크롤링 전에 AGENTS.md의 크롤링 제외 목록을 확인한다. 제외 파일은 크롤링하지 않고 업로드를 요청한다.
 - 작업지시서 생성 시 common-rules.md의 형식을 따른다. **코드가 포함된 작업지시서 생성 전에 common-rules.md를 크롤링한다(POLT·형식 규칙 참조).** 같은 세션 내 이미 크롤링했으면 생략 가능.
-- playbook.md의 교훈(4번)과 검증 규칙(5번)은 모든 작업지시서에 자동 적용된다.
+- opus.md의 교훈(4번)과 검증 규칙(5번)은 모든 작업지시서에 자동 적용된다.
 - troubleshooting-log.md 참조 조건: ①교훈에서 명시 ②같은 B-xx 2회+ 시도 ③사용자 재발 키워드("또/다시/재발/안 됐어"). 해당 시 크롤링하여 이전 시도를 확인한다.
 - 사용자가 백로그 ID를 언급했는데 직전 크롤링 결과에 없으면 backlog-archive.md를 크롤링한다.
 
-### 세션 종료 — playbook.md 갱신
+### 세션 종료 — opus.md 갱신
 
-모든 프로젝트의 작업지시서 마지막에 playbook.md 갱신 Step을 포함한다.
+모든 프로젝트의 작업지시서 마지막에 opus.md 갱신 Step을 포함한다.
 
-갱신 대상: 교훈 추가 (playbook.md), 백로그 상태 변경 (backlog.md).
+갱신 대상: 교훈 추가 (opus.md), 백로그 상태 변경 (backlog.md).
 교훈 추가 조건: ①같은 실수 2회 발생 ②작업지시서 실행 후 예상과 다른 결과 ③사용자가 AI 판단 누락을 지적.
-완료된 백로그: backlog-archive.md로 이관 후 playbook.md에서 삭제한다.
+완료된 백로그: backlog-archive.md로 이관 후 opus.md에서 삭제한다.
 
-**필수 규칙:** AI는 모든 작업지시서에 playbook.md 갱신 Step을 자동 포함한다. 빠뜨리면 안 된다.
+**필수 규칙:** AI는 모든 작업지시서에 opus.md 갱신 Step을 자동 포함한다. 빠뜨리면 안 된다.
 작업지시서 없이 발생하는 변경(백로그 추가/상태 변경/교훈 추가 등)도 Claude Code가 직접 편집한다. 사용자에게 수동 편집을 넘기지 않는다.
 
 ### Progressive Disclosure 원칙
 
-playbook.md는 200줄 이하 유지. 교훈 20건 초과 시 아카이브. 상세 규칙은 common-rules.md 섹션 12 참조.
+opus.md는 200줄 이하 유지. 교훈 20건 초과 시 아카이브. 상세 규칙은 common-rules.md 섹션 12 참조.
 
 ---
 
