@@ -165,7 +165,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 | L-02 | switchTab else 블록 패널 복원 누락 | 에디터 서브 패널 복원 체크리스트 | keep |
 | L-03 | gesture.js 인라인 스타일 덮어씀 | CSS !important + 전용 클래스 | keep |
 | L-04 | clasp push 후 웹앱 미반영 | 수동 재배포 안내 포함 | GAS 전체 |
-| L-05 | 동기화로 더미 데이터 복귀 | 서버+로컬 양쪽 정리 + 타임스탬프 엄격 비교 | gym, study |
+| L-05 | 동기화로 더미 데이터 복귀 | 서버+로컬 양쪽 정리 + 타임스탬프 엄격 비교. keep: expenses+docs+books+quotes 급감 차단, gym: sessions 급감 차단 | gym, study, keep |
 | L-06 | import 시 날짜 밀림 | import 후 미래 날짜 확인 Step | keep |
 | L-07 | 멀티유저 설정 오염 | USER_CONFIG 보호 체크리스트 | keep |
 | L-08 | sed/tr로 파일 소실 | Unix 텍스트 도구 사용 금지 | 전체 |
@@ -209,5 +209,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업. B-40 study 다세대 백업 완료. B-38 persist() 전 프로젝트 적용. B-41 빈 LS 자동 복원 보호 (keep/gym/study). B-43 완료. B-45 CLAUDE.md 생성. 서재/크립토 AGENTS.md 경량화. keep/gym/study CLAUDE.md 중복 제거. docs CLAUDE.md 생성. B-31 오늘의내비 피드백 지침서 분리 완료. 응대 톤 규칙 추가, B-13/B-14 완료(세션 소실/복원), 문서 역할 맵 추가, Progressive Disclosure 개정, 크롤링 제외 규칙 추가, troubleshooting-log.md 신설, L-13 교체, keep/gym AGENTS.md 체크리스트 통합, B-46 완료, I-05 추천앱 아이디어 등록
+- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업. B-40 study 다세대 백업 완료. B-38 persist() 전 프로젝트 적용. B-41 빈 LS 자동 복원 보호 (keep/gym/study). keep/gym 무결성 검증 확대 (docs/books/quotes 급감 차단, sessions 급감 차단). B-43 완료. B-45 CLAUDE.md 생성. 서재/크립토 AGENTS.md 경량화. keep/gym/study CLAUDE.md 중복 제거. docs CLAUDE.md 생성. B-31 오늘의내비 피드백 지침서 분리 완료. 응대 톤 규칙 추가, B-13/B-14 완료(세션 소실/복원), 문서 역할 맵 추가, Progressive Disclosure 개정, 크롤링 제외 규칙 추가, troubleshooting-log.md 신설, L-13 교체, keep/gym AGENTS.md 체크리스트 통합, B-46 완료, I-05 추천앱 아이디어 등록
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수
