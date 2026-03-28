@@ -112,7 +112,6 @@
 | B-26 | keep | 클로드 댓글 수동 → API 자동화 | P3 | 현재 수동 운영 |
 | B-27 | keep | 서재 어구록 데이터를 댓글 참조 자료로 활용 | P3 | B-26 연계 |
 | B-30 | 개인 | 구글 결제 내역 문의 및 청구 취소 | P0 | 3/30(월)까지 |
-| B-31 | 오늘의내비 | 피드백 지침서 분리 | P1 | L-09/I-01 연계 |
 | B-32 | 오늘의내비+keep | 소연 AI 댓글 품질 개선 | P1 | B-31 후 |
 | B-33 | docs | docs 레포 하위 프로젝트 정리 | P2 | 단순 이동 + 맵 갱신 |
 | B-38 | 전체 | navigator.storage.persist() 추가 | P1 | 30분 |
@@ -196,5 +195,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업. B-43 완료. B-45 CLAUDE.md 생성. 서재/크립토 AGENTS.md 경량화. keep/gym/study CLAUDE.md 중복 제거. docs CLAUDE.md 생성
+- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업. B-43 완료. B-45 CLAUDE.md 생성. 서재/크립토 AGENTS.md 경량화. keep/gym/study CLAUDE.md 중복 제거. docs CLAUDE.md 생성. B-31 오늘의내비 피드백 지침서 분리 완료
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수
