@@ -98,7 +98,6 @@
 | B-32 | 오늘의내비+keep | 소연 AI 댓글 품질 개선 | P1 | B-31 후 |
 | B-33 | docs | docs 레포 하위 프로젝트 정리 | P2 | 단순 이동 + 맵 갱신 |
 | B-38 | 전체 | navigator.storage.persist() 추가 | P1 | 30분 |
-| B-39 | 운동 | gym GAS 백업 체계 이식 | P0 | 현재 백업 없음 |
 | B-40 | 어학 | study GAS 백업 체계 이식 | P1 | 현재 백업 없음 |
 | B-41 | 운동+어학 | 앱 시작 시 빈 LocalStorage 자동 복원 | P2 | B-13/B-14 연계 |
 | B-42 | keep | 알림 패널 시간 표기 오류 | P1 | 파트너 게시물 createdAt 참조 추정 |
@@ -178,5 +177,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 완료 — common-rules.md·backlog-archive.md 신규, playbook/AGENTS.md 경량화, CLAUDE.md 3개 프로젝트 생성/교체. B-43 완료 (구식 내용 정리)
+- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업 체계 구축 (1일1회, 7일분, listBackups/restoreFromBackup). B-43 완료 (구식 내용 정리)
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수
