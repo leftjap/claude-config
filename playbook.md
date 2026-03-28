@@ -45,6 +45,7 @@
 완료된 백로그: backlog-archive.md로 이관 후 playbook.md에서 삭제한다.
 
 **필수 규칙:** AI는 모든 작업지시서에 playbook.md 갱신 Step을 자동 포함한다. 빠뜨리면 안 된다.
+작업지시서 없이 발생하는 변경(백로그 추가/상태 변경/교훈 추가 등)도 Claude Code가 직접 편집한다. 사용자에게 수동 편집을 넘기지 않는다.
 
 ### Progressive Disclosure 원칙
 
@@ -101,6 +102,7 @@
 | B-40 | 어학 | study GAS 백업 체계 이식 | P1 | 현재 백업 없음 |
 | B-41 | 운동+어학 | 앱 시작 시 빈 LocalStorage 자동 복원 | P2 | B-13/B-14 연계 |
 | B-42 | keep | 알림 패널 시간 표기 오류 | P1 | 파트너 게시물 createdAt 참조 추정 |
+| B-45 | playbook | CLAUDE.md 생성 + 세션 종료 규칙 보강 | P1 | 이 작업지시서 |
 
 ### ⚪ 아이디어
 
@@ -177,5 +179,5 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 ## 변경 이력
 
-- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업 체계 구축 (1일1회, 7일분, listBackups/restoreFromBackup). B-43 완료 (구식 내용 정리). keep B-34 완료 (date picker overlay 방식, iOS Safari showPicker() 제한 우회)
+- 3/28: I-01 문서 경량화 완료. B-39 gym 다세대 백업 체계 구축. B-43 완료. B-44 구글 드라이브 정리 추가. B-45 playbook CLAUDE.md 생성
 - 3/27: keep B-35~B-37 완료 (파트너 오염 방지, 다세대 백업, 교차 오염 검증). B-38~B-42 추가. gym/study/docs 커밋 다수
