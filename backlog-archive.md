@@ -28,6 +28,7 @@
 | B-53 | keep | 멀티디바이스 동기화 레이스 컨디션 수정 | 완료 3/29 | loadDatabase merge 방식 전환 + _softDelete updated 갱신 + catch 오타 수정 |
 | B-59 | keep | SMS 수신 시 카드 SMS 시트에 append-only 동시 기록 | 완료 3/29 | saveExpenseFromSMS appendRow + importCardSmsSheet H열 우선 사용 + clasp push |
 | B-60 | keep | Google Drive 외부 로컬 일일 백업 | 3/29 | PowerShell + Task Scheduler 자동화 |
+| B-58 | keep | 삭제한 글이 새로고침 후 다시 나타남 | 3/29 | merge 시 _deleted 가드 + push 실패 시 dirty flag로 서버 pull 차단 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -128,3 +129,10 @@
   - [x] 30일 이전 백업 파일이 자동 삭제된다
   - [x] 빈 DB는 백업하지 않는다
 - **완료 커밋:** B-60
+
+### B-58 keep · 삭제한 글이 새로고침 후 다시 나타남 — 완료 (2026-03-29)
+- **한 줄 요약:** soft delete 후 서버 loadDatabase() 시 삭제 상태가 덮어씌워져 삭제된 글이 재등장하는 버그 수정
+- **완료 조건:**
+  - [x] 삭제한 글이 새로고침·서버 동기화 후에도 표시되지 않음
+- **현재:** 완료. merge 시 _deleted 가드 + push 실패 시 dirty flag로 서버 pull 차단.
+- **커밋 태그:** B-58
