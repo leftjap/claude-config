@@ -11,15 +11,31 @@
 3. **한 줄 요약**은 사용자 언어로 쓴다. 함수명·변수명 등 기술 용어를 넣지 않는다.
 4. **완료 조건**은 사용자 행동 기반으로 쓴다. "사용자가 ~하면 ~된다" 또는 "~화면에서 ~가 보인다" 형식.
 5. 완료된 항목은 `backlog-archive.md`로 이동한다.
+6. **모든 항목에 "관련 코드" 필드를 채운다.** 등록 시점에 소스를 보고 있으므로 관련 파일·함수·흐름을 기록한다. 다음 세션의 Opus가 이 필드만 보고 어떤 파일을 크롤링해야 하는지 판단할 수 있어야 한다.
+7. **버그 항목은 "재현" + "원인 추정" 필드를 필수로 채운다.** 재현의 "관찰"은 스크린샷을 대체하는 텍스트 묘사다 — 화면에 보이는 것을 그대로 쓴다. 원인 추정은 ①의심 코드 경로 ②확인한 것과 배제한 것 ③다음 확인 단계를 기록한다.
+8. **원인 추정이 "미분석"인 버그는 등록하지 않는다.** 등록 시점에 최소 1단계 분석을 수행하여 ①②③을 채운다. 다음 세션의 Opus가 ③부터 이어갈 수 있어야 한다.
 
 ### 상세 블록 템플릿
 
+**공통 (모든 항목):**
+
 > **B-xx 상세**
-> - **한 줄 요약:** (이 기능이 완성되면 사용자가 뭘 할 수 있는지)
+> - **한 줄 요약:** (이 항목이 완료되면 사용자가 뭘 할 수 있는지 / 뭐가 고쳐지는지)
 > - **완료 조건:**
 >   - [ ] (사용자 행동 기반 체크리스트)
-> - **현재:** (마지막 갱신 시점 상태)
+> - **관련 코드:** (파일명 + 함수명 또는 흐름. 예: "editor.js doSaveAndSync → data.js saveCurDoc → ui.js renderListPanel")
+> - **현재:** (마지막 갱신 시점 상태. 사실만 기재)
 > - **커밋 태그:** B-xx
+
+**버그일 때 추가:**
+
+> - **재현:**
+>   - 환경: (iOS PWA / PC Chrome / 태블릿 등 + OS 버전)
+>   - 경로: 1. ○○ 2. ○○ 3. ○○
+>   - 관찰: (화면에 보이는 것을 구체적으로 묘사 — 스크린샷 대체)
+>   - 기대: (정상 동작)
+>   - 빈도: (항상 / n/10 / 조건부)
+> - **원인 추정:** (①의심 코드 경로 ②확인한 것과 배제한 것 ③다음 확인 단계)
 
 ---
 
@@ -89,14 +105,39 @@
 - **완료 조건:**
   - [ ] 에디터에서 제목을 입력하면 리스트의 해당 항목 제목이 즉시 갱신된다
   - [ ] 제목 입력 후 다른 탭으로 전환했다 돌아와도 제목이 유지된다
-- **현재:** 미착수. 원인 분석 필요 — edTitle input → saveCurDoc → renderListPanel 경로 확인
+- **관련 코드:** editor.js setupAutoSave(onInput → doSaveAndSync → saveLocalOnly) → data.js saveCurDoc(가드 3개: partnerMode, currentLoadedDoc, 빈 내용) → ui.js renderListPanel(pane-list innerHTML 교체)
+- **재현:**
+  - 환경: 미확인 — PC/모바일 양쪽 재현 필요
+  - 경로: 1. 아무 탭에서 새 글 생성(FAB 또는 새글 버튼) 2. 제목 필드에 텍스트 입력 3. 리스트 패널 확인
+  - 관찰: 미확인 — 리스트 항목이 "제목 없음" 유지인지, 리스트 뷰 전환 후에도 동일한지 실기기 확인 필요
+  - 기대: 리스트의 해당 항목 제목이 입력한 값으로 갱신
+  - 빈도: 미확인
+- **원인 추정:**
+  - ①의심 경로 A: doSaveAndSync 후 renderListPanel 미호출 — 저장은 되나 리스트 DOM 미갱신 (PC/태블릿에서 리스트 상시 노출 시 눈에 띔)
+  - ①의심 경로 B: saveCurDoc 가드(빈 내용 차단, currentLoadedDoc 미설정, curIds 미설정)에서 저장 자체 차단
+  - ②확인: saveCurDoc 코드 정적 분석 완료 — 새 글 생성 시 loadDoc이 curIds·currentLoadedDoc을 설정하므로 가드 통과. 제목만 입력(본문 비어있음) 시 가드 C는 !title&&!content이므로 title이 있으면 통과. 정적 분석상 저장은 정상
+  - ②배제: 파트너 모드 가드, DB 로딩 중 가드는 일반 사용 시 해당 없음
+  - ③다음 단계: 실기기에서 재현 후 콘솔에서 `JSON.parse(localStorage.getItem('gb_docs')).filter(d=>!d._deleted).slice(0,3).map(d=>({id:d.id,title:d.title}))` 실행하여 저장 여부 확인. 저장 됐으면 → 경로 A(렌더링), 저장 안 됐으면 → 경로 B(가드)
+- **현재:** 미착수. 코드 정적 분석 완료, 실기기 재현 대기
 - **커밋 태그:** B-56
 
 ### B-57 상세
-- **한 줄 요약:** iOS PWA에서 제목 입력 후 본문 탭 시 툴바·리스트가 사라지고 빈 화면만 표시
+- **한 줄 요약:** iOS PWA에서 제목 입력 후 본문 탭 시 툴바·리스트가 사라지고 빈 화면만 표시되는 버그
 - **완료 조건:**
   - [ ] iOS PWA에서 제목→본문 전환 시 정상 레이아웃 유지
-- **현재:** 미착수. iOS 키보드/viewport 문제 또는 CSS 레이아웃 원인 추정
+- **관련 코드:** editor.js setupEnterKey(Enter 시 edBody.focus) + setupAutoSave(blur → saveLocalOnly 200ms) / style.css .editor(position:fixed, inset:0) + 모바일 미디어쿼리(max-width:768px) / ui.js setMobileView
+- **재현:**
+  - 환경: iOS PWA (기기 모델·iOS 버전 미확인)
+  - 경로: 1. iOS PWA에서 글 열기 또는 새 글 생성 2. 제목 필드 탭 → 키보드 올림 3. 제목 입력 4. 본문 영역 탭
+  - 관찰: 미확인 — "툴바·리스트가 사라지고 빈 화면"의 구체적 상태를 실기기에서 확인 필요
+  - 기대: 키보드 유지 + 본문에 커서 이동, 레이아웃 변화 없음
+  - 빈도: 미확인
+- **원인 추정:**
+  - ①의심 경로: iOS에서 input→contenteditable 포커스 전환 시 키보드 닫힘→재오픈으로 viewport 급변 → position:fixed 레이아웃 붕괴. L-12(iOS PWA 하단 고정 버튼 5회 시행착오)와 같은 계열
+  - ②확인: CSS 정적 분석 — .editor는 position:fixed+inset:0, 모바일에서 transform:translateX(0). iOS 키보드 토글 시 bottom:0 재계산 가능성 확인
+  - ②배제: JS 로직(switchTab, setMobileView)은 제목→본문 탭 시 호출되지 않으므로 JS 원인 가능성 낮음
+  - ③다음 단계: iOS 실기기에서 재현 후 ⑴깨진 상태에서 DevTools로 display:none/height:0인 요소 확인 ⑵visualViewport.height와 window.innerHeight 비교 로그 삽입
+- **현재:** 미착수. CSS 정적 분석 완료, iOS 실기기 재현 대기
 - **커밋 태그:** B-57
 
 ---

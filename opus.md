@@ -173,6 +173,7 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 | L-18 | 백로그 상세는 등록 시점에 즉시 기록한다. "나중에 채운다"는 규칙은 지켜지지 않으며, 세션이 바뀌면 맥락이 유실된다. (근거: Genspark 대화 2026-03-28, OpenClaw 사례 "Write it down or lose it") | 전체 |
 | L-19 | AI 생성 코드가 로직 오류(1.75×)·회귀(75% 에이전트)를 빈번히 발생시킴 | common-rules.md 6-1 POLT 적용 — Opus가 코드 출력 전 ⓪Scope Lock→①Dry Run→②Self-Critique→③Wiring Check→④Preservation Check→⑤Faithfulness Check 수행. 근거: decisions/2026-03-28-polt-adoption.md | 전체 |
 | L-20 | 분석·설계 산출물에서 범위 누락·참조 불일치·전제 오류가 반복됨 | opus.md 4-2 ALT 적용 — ①산출물 작성 → ②범위·참조·전제·역추적 4항목 검증 → ③결함 시 수정 → 재검증(최대 1회). 근거: decisions/2026-03-28-analysis-verification-checklist.md | 전체 |
+| L-21 | 백로그 버그 항목의 맥락이 세션 간 유실되어 작업 착수 불가 | 버그 등록 시 재현(환경/경로/관찰/기대/빈도) + 원인 추정(①의심 경로 ②확인·배제 ③다음 단계) 필수 기재. 미분석 상태 등록 금지. 모든 항목에 관련 코드(파일·함수·흐름) 필수. 근거: QA Wolf·Cursa 가이드 + MS SRE Agent "Shared Context" 사례 | 전체 |
 
 ---
 
