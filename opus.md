@@ -274,3 +274,32 @@ AI는 작업지시서 출력 전에 이 목록을 스캔한다. 해당 교훈이
 
 사용자 상태: "가볍게" → 난이도 낮은 항목. "집중해서" → 임팩트 큰 항목. "빨리 끝내고 싶어" → Step 적은 항목.
 
+---
+
+## 7. 진행 중 백로그 (🔴)
+
+| ID | 항목 | 상태 |
+|---|---|---|
+| B-58 | Explorer 컬럼 너비 복원 실패 | API·fetch·preload 모두 실패, 디버그 로깅 필요 |
+
+### B-58 Explorer 컬럼 너비 복원 실패
+
+- **한 줄 요약**: 컬럼 리사이저 드래그로 너비 저장은 되지만(column_widths.json 생성 확인), 앱 재시작 시 저장된 너비가 복원되지 않고 기본 220px로 표시
+- **완료 조건**:
+  - [ ] exe 실행 → depth 0 리사이저 드래그 → 앱 종료 → 재실행 → 저장된 너비로 표시
+  - [ ] depth 2~3 진입 후 리사이저 변경 → 종료 → 재실행 → 해당 depth 진입 시 복원 확인
+- **재현**: exe 실행 → 컬럼 리사이저 드래그 → 앱 종료 → 재실행 → 모든 컬럼 220px
+- **원인 추정 (미확정)**:
+  1. get_column_widths() API 호출이 빈 dict 반환 (경로 또는 bridge 문제)
+  2. pywebview HTTP 서버 캐시가 이전 404 응답을 캐싱
+  3. WebView2 캐시(webview_data/EBWebView/)가 구 버전 app.js 서빙
+  4. 상기 모두 해당 안 될 시 api.py에 디버그 로깅 추가하여 런타임 반환값 확인 필요
+- **관련 코드**: app.js(loadColumnWidths, getColumnWidth, saveColumnWidth, init, loadColumn), api.py(get_column_widths, save_column_widths, COLUMN_WIDTHS_PATH), main.py(webview.start 설정)
+- **시도한 접근**:
+  - window.pywebview.api.get_column_widths() 호출 (원본)
+  - fetch('column_widths.json', {cache:'no-store'}) 전환 (커밋 0f22697)
+  - init()에서 get_favorites()와 같은 시점에 preload (현재 진행 중)
+- **다음 단계**: api.py에 디버그 로깅 추가 → exe 재빌드 → debug.log 확인
+- **현재 상태**: 🔴 미해결
+- **커밋 태그**: 0f22697
+
