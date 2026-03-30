@@ -13,3 +13,4 @@
 | 2026-03-28 | 2026-03-28-analysis-verification-checklist.md | opus, analysis, design, verification | ALT(Analysis Logic Trace) 도입 — opus.md 4-2, L-20 |
 | 2026-03-28 | 2026-03-28_opus-rename.md | naming, opus | playbook.md → opus.md 리네이밍. 레포명 유지, 파일명만 변경 |
 | 2026-03-29 | 2026-03-29_repo-rename.md | opus, naming | playbook → opus 레포·폴더 리네이밍. 전 프로젝트 참조 URL 일괄 치환 |
+| 2026-03-31 | 2026-03-31-changelog-adoption.md | opus, changelog, operations | 프로젝트별 CHANGELOG.md 도입 — Keep a Changelog 기반, 작업지시서 커밋 전 자동 갱신 |

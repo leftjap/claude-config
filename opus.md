@@ -72,7 +72,7 @@ Sentry MCP(stdio) 연동됨. org: leftjap.
 
 모든 프로젝트의 작업지시서 마지막에 opus.md 갱신 Step을 포함한다.
 
-갱신 대상: 교훈 추가 (opus.md), 백로그 상태 변경 (backlog.md).
+갱신 대상: 교훈 추가 (opus.md), 백로그 상태 변경 (backlog.md), 작업 내역 (프로젝트별 CHANGELOG.md).
 교훈 추가 조건: ①같은 실수 2회 발생 ②작업지시서 실행 후 예상과 다른 결과 ③사용자가 AI 판단 누락을 지적.
 완료된 백로그: backlog-archive.md로 이관 후 opus.md에서 삭제한다.
 
