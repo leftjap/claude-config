@@ -49,6 +49,7 @@ AI의 응답은 **간결한 경어체**로 작성한다. 작업지시서·방향
      `GET https://api.github.com/users/leftjap/events?per_page=30`
    - 2단계: 변동 레포만 Commits API → 커밋 메시지 확인
      `GET https://api.github.com/repos/leftjap/{repo}/commits?since={날짜}&per_page=5`
+   - 3단계: 변동 레포에 원인 태그가 도입되어 있으면 CHANGELOG.md를 크롤링하여 동일 원인 태그 2회+를 확인한다. 발견 시 교훈 후보를 사용자에게 제안한다 (교훈 추가 조건 ② 참조).
 3. opus.md 기재 내용과 실제 커밋을 대조하여 차이를 보고한다
 4. 갱신이 필요하면 갱신 내용을 함께 제시한다
 
@@ -74,7 +75,7 @@ Sentry MCP(stdio) 연동됨. 상세는 common-rules.md 참조.
 모든 프로젝트의 작업지시서 마지막에 opus.md 갱신 Step을 포함한다.
 
 갱신 대상: 교훈 추가 (opus.md), 백로그 상태 변경 (backlog.md), 작업 내역 (프로젝트별 CHANGELOG.md).
-교훈 추가 조건: ①사용자가 명시적으로 "교훈 등록" 지시 ②Opus가 CHANGELOG 크롤링 시 동일 원인 태그 2회+ → 교훈 후보 제안 → 사용자 승인 ③사용자가 이전 작업지시서 실패 보고 시 → Opus 원인 분석 → 교훈 등록 여부 판단.
+교훈 추가 조건: ①사용자가 명시적으로 "교훈 등록" 지시 ②상태 점검 시, 변동 레포에 원인 태그가 도입되어 있으면 CHANGELOG.md의 Fixed 항목에서 동일 원인 태그 2회+ 발견 → 교훈 후보 제안 → 사용자 승인 ③사용자가 이전 작업지시서 실패 보고 시 → Opus 원인 분석 → 교훈 등록 여부 판단.
 교훈 추가 주체: Opus만. Haiku는 교훈을 자체 판단하지 않는다.
 
 **필수 규칙:** AI는 모든 작업지시서에 opus.md 갱신 Step을 자동 포함한다. 빠뜨리면 안 된다.
