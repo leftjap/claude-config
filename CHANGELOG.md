@@ -10,6 +10,7 @@
 - CHANGELOG 갱신 트리거를 "opus.md 갱신 Step 연동"에서 "모든 작업지시서 커밋 직전"으로 변경 + 제외 규칙 삭제 — CHANGELOG를 모든 작업지시서의 실행 로그로 활용. (common-rules.md)
 - "세션 종료 — opus.md 갱신" 블록 삭제 — 교훈 관리 규칙을 섹션 4로, 운영 문서 편집 규칙을 세션 중 라우팅으로 재배치. common-rules.md §5와의 삼중 중복 해소. (opus.md, common-rules.md)
 - common-rules.md §5 "opus.md 갱신"을 "운영 문서 갱신"으로 명칭 변경 — 갱신 대상(opus.md, backlog.md, CHANGELOG.md) 명시. opus.md 갱신 불필요 시에도 CHANGELOG는 기록하도록 명확화. (common-rules.md)
+- opus.md 중복·오류 정리 — 세션 시작 번호 오류 수정, 세션 중 라우팅 중복 삭제, 등록 규칙 backlog.md 포인터로 축소, rate limit 중복 삭제. (opus.md)
 - 전 프로젝트 CLAUDE.md에서 playbook→opus 명칭 전면 교체 — opus 레포 리네임 반영. (CLAUDE.md ×7, common-rules.md)
 - opus CLAUDE.md에서 Opus 관리 사항 4건 삭제 (모호한 표현 금지, opus.md 참조 포인터, 200줄 제한, 변경 이력 3일분) — HumanLayer 연구 기반 CLAUDE.md 최적화
 - keep CLAUDE.md에서 switchTab() else 블록 항목 삭제 — 조건부 판단 규칙은 작업지시서 Step이 확실
