@@ -29,6 +29,7 @@
 | B-59 | keep | SMS 수신 시 카드 SMS 시트에 append-only 동시 기록 | 완료 3/29 | saveExpenseFromSMS appendRow + importCardSmsSheet H열 우선 사용 + clasp push |
 | B-60 | keep | Google Drive 외부 로컬 일일 백업 | 3/29 | PowerShell + Task Scheduler 자동화 |
 | B-58 | keep | 삭제한 글이 새로고침 후 다시 나타남 | 3/29 | merge 시 _deleted 가드 + push 실패 시 dirty flag로 서버 pull 차단 |
+| B-56 | keep | 에디터에서 제목을 입력해도 리스트에 반영되지 않음 | 3/30 | saveLocalOnly에서 .lp-item.on 제목 경량 갱신 추가 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -137,3 +138,14 @@
 - **현재:** 완료. merge 시 _deleted 가드 + push 실패 시 dirty flag로 서버 pull 차단.
 - **커밋 태그:** B-58
 - **참고:** keep 커밋 `234839b` 메시지에 `(B-58)`로 표기되어 있으나, 해당 커밋의 실제 내용은 B-61 (iOS PWA 초기 로드 시 빈 문서 자동 생성 방지)이다. B-58은 본 항목(삭제한 글이 새로고침 후 다시 나타남)이 맞으며, `234839b`는 B-58 이후에 발견된 후속 버그(B-61) 수정 커밋이다.
+
+### B-56 keep · 에디터에서 제목을 입력해도 리스트에 반영되지 않음 — 완료 (2026-03-30)
+- **한 줄 요약:** 글을 새로 쓸 때 제목을 입력해도, 왼쪽 리스트에 "제목 없음"으로 표시되어 입력한 제목이 반영되지 않는 버그
+- **완료 조건:**
+  - [x] 에디터에서 제목을 입력하면 리스트의 해당 항목 제목이 즉시 갱신된다
+  - [x] 제목 입력 후 다른 탭으로 전환했다 돌아와도 제목이 유지된다
+- **관련 코드:** editor.js setupAutoSave(onInput → doSaveAndSync → saveLocalOnly) → data.js saveCurDoc(가드 3개: partnerMode, currentLoadedDoc, 빈 내용) → ui.js renderListPanel(pane-list innerHTML 교체)
+- **원인:** saveLocalOnly에서 localStorage에는 정상 저장되지만, 저장 후 리스트 DOM의 해당 항목 제목을 갱신하는 코드가 없음
+- **해결:** saveLocalOnly 함수에서 showSaved() 다음에 현재 선택된 리스트 항목(.lp-item.on .lp-item-title)의 textContent를 에디터 제목 필드 값으로 동기화. 전체 renderListPanel() 호출 대신 경량 업데이트로 성능 최적화.
+- **현재:** ✅ 완료 (editor.js setupAutoSave → saveLocalOnly 함수에 리스트 제목 경량 갱신 로직 추가)
+- **커밋 태그:** B-56

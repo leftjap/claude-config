@@ -50,7 +50,6 @@
 | B-03 | 서재 | 새 책 등록 시 인용문 태그 자동 포함 | 방향 합의, 미착수 |
 | B-54 | keep | 데이터 보존 안전장치 (soft delete + 소실 차단 + 백업 30일) | 코드 완료, 배포 대기 |
 | B-55 | keep | 휴지통 UI — 삭제된 항목 조회 및 복원 | 코드 완료 (서버 가드 자동 보정 전환), GAS 재배포 + 검증 대기 |
-| B-56 | keep | 에디터에서 제목을 입력해도 리스트에 반영되지 않음 | 미착수 |
 | B-57 | keep | iOS PWA 제목→본문 탭 시 UI 깨짐 | 미착수 |
 
 ### B-01 상세
@@ -106,27 +105,6 @@
   - [x] 모바일/태블릿/PC에서 정상 동작 확인
 - **현재:** 코드 완료. 쓰기 함수(newDoc/saveBook/saveQuote/saveMemo/togglePin) raw 배열 전환 + saveCurDoc _deleted 보존 + 서버 가드 자동 보정 + push 실패 시 서버 덮어쓰기 방지 + **saveCurDoc 빈 문서 덮어쓰기 레이스 컨디션 가드 추가**. GAS 재배포 + 검증 대기.
 - **커밋 태그:** B-55
-
-### B-56 상세
-- **한 줄 요약:** 글을 새로 쓸 때 제목을 입력해도, 왼쪽 리스트에 "제목 없음"으로 표시되어 입력한 제목이 반영되지 않는 버그
-- **완료 조건:**
-  - [ ] 에디터에서 제목을 입력하면 리스트의 해당 항목 제목이 즉시 갱신된다
-  - [ ] 제목 입력 후 다른 탭으로 전환했다 돌아와도 제목이 유지된다
-- **관련 코드:** editor.js setupAutoSave(onInput → doSaveAndSync → saveLocalOnly) → data.js saveCurDoc(가드 3개: partnerMode, currentLoadedDoc, 빈 내용) → ui.js renderListPanel(pane-list innerHTML 교체)
-- **재현:**
-  - 환경: 미확인 — PC/모바일 양쪽 재현 필요
-  - 경로: 1. 아무 탭에서 새 글 생성(FAB 또는 새글 버튼) 2. 제목 필드에 텍스트 입력 3. 리스트 패널 확인
-  - 관찰: 미확인 — 리스트 항목이 "제목 없음" 유지인지, 리스트 뷰 전환 후에도 동일한지 실기기 확인 필요
-  - 기대: 리스트의 해당 항목 제목이 입력한 값으로 갱신
-  - 빈도: 미확인
-- **원인 추정:**
-  - ①의심 경로 A: doSaveAndSync 후 renderListPanel 미호출 — 저장은 되나 리스트 DOM 미갱신 (PC/태블릿에서 리스트 상시 노출 시 눈에 띔)
-  - ①의심 경로 B: saveCurDoc 가드(빈 내용 차단, currentLoadedDoc 미설정, curIds 미설정)에서 저장 자체 차단
-  - ②확인: saveCurDoc 코드 정적 분석 완료 — 새 글 생성 시 loadDoc이 curIds·currentLoadedDoc을 설정하므로 가드 통과. 제목만 입력(본문 비어있음) 시 가드 C는 !title&&!content이므로 title이 있으면 통과. 정적 분석상 저장은 정상
-  - ②배제: 파트너 모드 가드, DB 로딩 중 가드는 일반 사용 시 해당 없음
-  - ③다음 단계: 실기기에서 재현 후 콘솔에서 `JSON.parse(localStorage.getItem('gb_docs')).filter(d=>!d._deleted).slice(0,3).map(d=>({id:d.id,title:d.title}))` 실행하여 저장 여부 확인. 저장 됐으면 → 경로 A(렌더링), 저장 안 됐으면 → 경로 B(가드)
-- **현재:** 미착수. 코드 정적 분석 완료, 실기기 재현 대기
-- **커밋 태그:** B-56
 
 ### B-57 상세
 - **한 줄 요약:** iOS PWA에서 제목 입력 후 본문 탭 시 툴바·리스트가 사라지고 빈 화면만 표시되는 버그
