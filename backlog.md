@@ -170,7 +170,7 @@
     - [ ] 보호 규칙 테스트가 프로젝트에 영구 커밋되어 정식 테스트 스위트로 운영된다
 - **관련 코드:** keep `__tests__/` (32 tests: docs-crud, soft-delete, expense, sync-merge), gym `__tests__/` (27 tests: session-crud, pr-detection, sync-merge, set-integrity). 양쪽 모두 `package.json` + `.git/hooks/pre-commit` + `.claude/settings.json`
 - **선행 조건:** 없음
-- **현재:** Phase 0 검증 완료(리팩토링 불필요 판정). Phase 1 완료 — keep 4개 영역 32개 테스트, gym 4개 영역 27개 테스트, 양쪽 pre-commit hook 동작 확인. study는 개발 미완료(Phase 2 진행 중)로 보류, explorer는 사용 빈도 낮아 보류. 다음: Phase 2(시각적 회귀 테스트) 또는 백로그(B-42, B-15 등) 우선 진행
+- **현재:** Phase 0 검증 완료. Phase 1 완료 — keep 32개 + gym 27개 테스트, pre-commit hook, --no-verify 차단 hook. common-rules.md에 테스트 실행·실패 보고 규칙 추가. study·explorer 보류. 다음: Phase 2(시각적 회귀) 또는 백로그 진행
 - **커밋 태그:** B-57
 
 ### I-05 상세

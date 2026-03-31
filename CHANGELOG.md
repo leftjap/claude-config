@@ -1,5 +1,9 @@
 ## 2026-03-31
 
+### Added
+- common-rules.md 자동 테스트 규칙(Regression Guard) — 테스트 실행 의무, 실패 보고 형식, 금지 행동 정의 (B-57)
+- keep/gym .claude/settings.json PreToolUse hook — --no-verify 우회 차단 (B-57)
+
 ### Changed
 - backlog.md 테이블에 "종류"·"우선순위" 컬럼 통일 — 🔴·🟡 테이블 모두 6컬럼 체계로 변경. 종류: 버그/새 기능/개선/운영 (backlog.md)
 - opus.md 섹션 2에 백로그 호출 출력 형식 추가 — ID+프로젝트+작업명+상태 한마디+한 줄 요약 2줄 형식 (opus.md)
