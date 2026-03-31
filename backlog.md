@@ -75,7 +75,7 @@
 | B-42 | 03/28 19:16 | keep | 알림 패널 시간 표시 오류 수정 | 버그 | P1 | |
 | B-25 | 03/28 19:16 | keep | 파트너 모드 진입 시 로딩 시간 단축 | 개선 | P2 | |
 | B-18 | 03/28 19:16 | keep+서재 | 서재 발췌문 통합 | 새 기능 | P3 | B-01 완료, 착수 가능 |
-| B-57 | 03/31 17:30 | keep+gym+study+explorer | 회귀 방지 자동화 시스템 구축 | 운영 | P1 | Phase 1 완료 (keep+gym), 3중 방어 검증 완료. Phase 2·3 미착수 |
+| B-57 | 03/31 17:30 | keep+gym+study+explorer | 회귀 방지 자동화 시스템 구축 | 운영 | P1 | Phase 1 완료 + 영역 5~7 추가 보호 테스트(48건 PASS) + Code.js 동기화 완료 |
 
 ### B-15 상세
 - **등록일:** 03/28 19:16
@@ -177,7 +177,7 @@
   - 양쪽 `package.json` + `.git/hooks/pre-commit` + `.claude/settings.json`(permissions + PreToolUse hook)
   - `common-rules.md` §4 "자동 테스트 규칙(Regression Guard)"
 - **선행 조건:** 없음
-- **현재:** Phase 0+1 완료, 3중 방어 검증 완료. ①common-rules.md Regression Guard 규칙(Opus→작업지시서 반영) ②PreToolUse hook(--no-verify 차단, Haiku가 설정 인식 확인) ③pre-commit hook(npm test 실패 시 커밋 차단, 의도적 파손 테스트 통과). study는 개발 미완료(Phase 2 진행 중)로 보류, explorer는 사용 빈도 낮아 보류. 다음: Phase 2(시각적 회귀) 또는 백로그(B-42, B-15 등) 진행
+- **현재:** Phase 0+1 완료, 3중 방어 검증 완료. ①common-rules.md Regression Guard 규칙(Opus→작업지시서 반영) ②PreToolUse hook(--no-verify 차단, Haiku가 설정 인식 확인) ③pre-commit hook(npm test 실패 시 커밋 차단, 의도적 파손 테스트 통과). keep에서 추가 보호 테스트 3개 영역(5: SMS 파서 클라이언트↔서버 동기화, 6: switchTab 상태 정합성, 7: sendBeacon flush 페이로드) + Code.js 매핑 테이블 20+건 불일치 수정 완료(전체 48건 PASS). study는 개발 미완료(Phase 2 진행 중)로 보류, explorer는 사용 빈도 낮아 보류. 다음: Phase 2(시각적 회귀) 또는 백로그(B-42, B-15 등) 진행
 - **커밋 태그:** B-57
 
 ### I-05 상세
