@@ -170,7 +170,7 @@
     - [ ] 보호 규칙 테스트가 프로젝트에 영구 커밋되어 정식 테스트 스위트로 운영된다
 - **관련 코드:** 전 웹앱 공통. keep `js/data.js` `js/sync.js` (데이터 CRUD·동기화), gym/study/explorer 동일 패턴
 - **선행 조건:** 없음
-- **현재:** Phase 1 진행 중. keep 테스트 인프라 셋업 완료 (package.json + pre-commit hook). docs CRUD(영역 1) + soft delete(영역 3) 테스트 통과. 다음: expense 테스트(영역 4) + sync merge 테스트(영역 2)
+- **현재:** Phase 1 진행 중. keep 영역 1(docs CRUD) + 영역 3(soft delete) + 영역 4(expense 입력) 테스트 통과. 다음: sync merge 테스트(영역 2)
 - **커밋 태그:** B-57
 
 ### I-05 상세
