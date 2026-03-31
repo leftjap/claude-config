@@ -36,6 +36,7 @@
 | B-62 | opus | 작업지시서 범위 이탈 방지 + 세션 시작 흐름 재설계 | 3/31 | Scope Control 규칙 5건 + 세션 시작 흐름 변경 + 실 운영 검증 완료 |
 | B-02 | 어학 | 카드 난이도 판정 → 복습 일정 자동 조정 | 3/31 | judgeReview O/△/X → nextReview 갱신 + saveLangData + saveToServer 완료. getReviewItems 필터 정상 동작 확인 |
 | B-01 | 서재 | 인용문 태그 체계 완성 (일괄 적용 + 잔여분 + 자동 포함) | 3/31 | 102권 전체 태그 완료. Phase 3은 현재 UI 없음 — 웹앱 구축 시 재검토 |
+| B-63 | opus | GAS 자동 배포 체계 구축 (clasp → GitHub Actions) | 3/31 | Phase 1-2 완료. 4개 레포에 GitHub Actions workflow 배치됨 |
 
 ### B-48 운동 · 종목 네비 롱프레스 바텀시트 — 완료 (2026-03-28)
 - **한 줄 요약:** 종목 네비 버튼을 꾹 누르면 종목 완료/삭제 바텀시트가 뜨도록 하는 기능
@@ -225,3 +226,14 @@
 - **관련 코드:** 서재 gas/Code.js add_book·update_quote_tags, quotes-data.json
 - **현재:** ✅ 완료. DB 102권 전체 태그 확인 (list_books API 검증). Phase 3은 서재 웹앱 미존재로 보류.
 - **커밋 태그:** B-01
+
+### B-63 opus · GAS 자동 배포 체계 구축 (clasp → GitHub Actions) — 완료 (2026-03-31)
+- **한 줄 요약:** GAS 코드를 수정할 때마다 Apps Script 에디터에서 수동 배포하는 과정을 없애고, 터미널 명령어 또는 git push만으로 배포가 완료되게 하는 작업
+- **완료 조건:**
+  - Phase 1: keep·서재·gym·study에서 deploy.ps1로 GAS 배포가 완료된다
+    - [x] 완료
+  - Phase 2: git push → GitHub Actions가 clasp push → clasp deploy를 자동 실행한다
+    - [x] 완료
+- **관련 코드:** keep/gym/study/.github/workflows/deploy-gas.yml, docs/.github/workflows/deploy-gas-seojai.yml
+- **현재:** ✅ 완료. 4개 레포에 GitHub Actions workflow 배치 완료 (2026-03-31). keep/gym/study는 deploy-gas.yml, docs(서재)는 deploy-gas-seojai.yml (경로: 서재/gas/). git push 시 자동 배포 실행 확인 대기.
+- **커밋 태그:** B-63
