@@ -22,7 +22,7 @@
 | AGENTS.md | Opus | 프로젝트별 고유 규칙·파일 구조 |
 | CLAUDE.md | Haiku | 코딩 시 프로젝트별 주의사항 (상시 자동 로드) |
 
-작업지시서는 Haiku가 읽는다 — Opus 수준 추론 가정 금지. 세션은 독립적 — 매 세션 opus.md 업로드 필수. 작업환경 상세는 common-rules.md 섹션 8 참조.
+작업지시서는 Haiku가 읽는다 — Opus 수준 추론 가정 금지. 세션은 독립적 — 매 세션 opus.md 업로드 필수. 작업환경 상세는 common-rules.md 섹션 7 참조.
 
 ### 응답 톤
 
@@ -71,7 +71,7 @@ Sentry MCP(stdio) 연동됨. 상세는 common-rules.md 참조.
 
 ### Progressive Disclosure 원칙
 
-opus.md는 200줄 이하 유지. 교훈 20건 초과 시 아카이브. 상세 규칙은 common-rules.md 섹션 8 참조.
+opus.md는 200줄 이하 유지. 교훈 20건 초과 시 아카이브. 상세 규칙은 common-rules.md 섹션 7 참조.
 opus.md 갱신 Step 실행 시 줄 수를 확인한다. 200줄 초과 시 아카이브 대상을 제시하고 사용자에게 보고한다.
 
 ---
