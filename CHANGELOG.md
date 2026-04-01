@@ -4,6 +4,7 @@
 - B-77: 백로그 칸반 앱 제작 (P3, ⚪ 메모) — 드래그&드롭 상태 변경, 필터링, 로컬 저장
 
 ### Changed
+- 프로젝트명 Explorer → Finder 전면 변경 반영 — opus.md 프로젝트 맵, common-rules.md Sentry 슬러그 갱신. (opus.md, common-rules.md)
 - 상태 점검 프로토콜 트리거 문구에 "커밋 체크" 추가 — 칸반 이관 후 라우팅 누락 복원. (opus.md)
 - backlog.md 테이블 구조 변경 — 우선순위(P0~P4) 컬럼 제거, 칸반 앱 파서 6컬럼 기준에 맞춤. (backlog.md)
 - backlog.md에 ✅ 최근완료 섹션 추가. (backlog.md)
