@@ -32,7 +32,6 @@
 | B-25 | 03/28 19:16 | keep | 파트너 모드 진입 시 로딩 시간 단축 | 개선 |  |
 | B-72 | 03/31 19:45 | keep+gym | CSS 보호 속성 자동 탐지 테스트 | 운영 | B-57 완료 후 후속 과제 |
 | B-73 | 03/31 19:45 | keep+gym | 브라우저 특정 동작 보호 보강 | 운영 | B-57 완료 후 후속 과제 |
-| B-75 | 03/31 02:01 | opus | 백로그 현황·검증 상태 단일 HTML 대시보드 | 새 기능 | 범위: 서버 없음, localStorage, 기능 3개 |
 
 ### B-18 상세
 - **등록일:** 03/28 19:16
@@ -112,18 +111,6 @@
 - **현재:** ** ** 미착수. 현재는 AGENTS.md 문서 보호(B-57)로 대체된 상태. 실기기 테스트 또는 E2E(Playwright, Cypress 등) 도입 시 자동화 가능.
 - **커밋 태그:** ** ** B-73
 
-### B-75 상세
-- **등록일:** 03/31 02:01
-- **한 줄 요약:** ** ** backlog.md를 매번 크롤하지 않고, PC에서 HTML 파일 하나를 열면 백로그 현황과 커밋 여부, 사용자 수동 검증 상태를 한눈에 확인할 수 있게 하는 대시보드
-- **완료 조건:**
-  - [ ] dashboard.html을 브라우저에서 열면 backlog.md의 항목이 상태별(진행/대기/메모)로 표시된다
-  - [ ] 각 항목 옆 "검증 완료" 버튼을 누르면 사용자 수동 검증 상태가 localStorage에 저장·표시된다
-  - [ ] GitHub Commits API로 해당 B-xx 커밋이 push되었는지 자동 표시된다
-- **관련 코드:** ** ** `C:\dev\opus\dashboard.html` (신규 생성 예정, 단일 파일), GitHub Raw URL `https://raw.githubusercontent.com/leftjap/opus/main/backlog.md` (fetch 대상), GitHub Commits API `https://api.github.com/repos/leftjap/{repo}/commits`
-- **선행 조건:** ** ** 없음
-- **현재:** ** ** 미착수. 방향 검토 완료 — 단일 HTML, 기능 3개, localStorage, 서버 없음으로 범위 확정.
-- **커밋 태그:** ** ** B-75
-
 ## ⚪ 메모
 | ID | 등록일 | 프로젝트 | 작업 | 종류 | 메모 |
 |---|---|---|---|---|---|
@@ -166,3 +153,17 @@
 ## ✅ 최근완료
 | ID | 등록일 | 프로젝트 | 작업 | 종류 | 메모 |
 |---|---|---|---|---|---|
+| B-75 | 03/31 02:01 | opus | 백로그 현황·검증 상태 단일 HTML 대시보드 | 새 기능 | 범위: 서버 없음, localStorage, 기능 3개 |
+
+### B-75 상세
+- **등록일:** 03/31 02:01
+- **한 줄 요약:** ** ** backlog.md를 매번 크롤하지 않고, PC에서 HTML 파일 하나를 열면 백로그 현황과 커밋 여부, 사용자 수동 검증 상태를 한눈에 확인할 수 있게 하는 대시보드
+- **완료 조건:**
+  - [ ] dashboard.html을 브라우저에서 열면 backlog.md의 항목이 상태별(진행/대기/메모)로 표시된다
+  - [ ] 각 항목 옆 "검증 완료" 버튼을 누르면 사용자 수동 검증 상태가 localStorage에 저장·표시된다
+  - [ ] GitHub Commits API로 해당 B-xx 커밋이 push되었는지 자동 표시된다
+- **관련 코드:** ** ** `C:\dev\opus\dashboard.html` (신규 생성 예정, 단일 파일), GitHub Raw URL `https://raw.githubusercontent.com/leftjap/opus/main/backlog.md` (fetch 대상), GitHub Commits API `https://api.github.com/repos/leftjap/{repo}/commits`
+- **선행 조건:** ** ** 없음
+- **현재:** ** ** 미착수. 방향 검토 완료 — 단일 HTML, 기능 3개, localStorage, 서버 없음으로 범위 확정.
+- **커밋 태그:** ** ** B-75
+- **완료일:** 04/02 00:22
