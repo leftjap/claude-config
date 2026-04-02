@@ -1,6 +1,8 @@
 ## 2026-04-02
 
 ### Changed
+- POLT 강화 조건에 confident-but-wrong 방지 문구 추가 — 강화 조건 해당 시 최종 확인 항목에 구체적 입력값·기대 결과 명시, 리스크 기반 우선 배치. 근거: Meta Semi-Formal Reasoning(arXiv:2603.01896), Gawande Checklist Manifesto. (common-rules.md)
+- ALT A-2 출력 규칙에 외부 참조 확인 상태 표기 추가 — 비개발자가 검증 신뢰도를 판단할 수 있도록 (확인됨)/(캐시 참조)/(미확인) 구분. (opus.md)
 - POLT ① Dry Run에 테스트 생성 시 실제 출력 기반 expected 설정 규칙 추가 — AI가 expected를 추측하지 않도록 강제. (common-rules.md)
 - CLAUDE.md "반복 실패 방지" 제거, "테스트 실행 규칙" 신설 — 반복 실패 방지는 Opus 측 규칙으로 이관 예정, 테스트 루프 방지는 Haiku 세션 내 감지 가능. (CLAUDE.md)
 - D-check 출력 규칙: 적용 대상이면 항상 `▷ [변환된 질문]` 출력 필수로 변경. 편향 미감지 시에도 "— 전제 타당" 표기. 근거: 비가시 지시의 실행 보장 불가(Chen 2026, Baker 2025), Dubois(2026) 리프레이밍 효과는 변환 결과가 출력에 존재해야 발생. (opus.md)
