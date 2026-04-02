@@ -14,6 +14,10 @@
 - POLT ② Self-Critique에 "AGENTS.md 체크리스트 대조" 추가 — 5개 프로젝트(gym, study, keep, Finder, backlog)의 작업 전 체크리스트를 POLT 출력 경로에 편입. (common-rules.md)
 - CLAUDE.md 백로그 직접 등록 규칙 삭제 — 백로그 앱으로 이관 완료. (CLAUDE.md)
 
+### Added
+- 세션 인수인계 규칙 — 트리거·필수 5구성·분량 제약 (common-rules.md)
+- 과압축 방지 규칙 — 검색결과·결정·실패 기록 시 조건/사유/출처 보존 의무 (common-rules.md)
+
 ## 2026-04-01
 
 ### Changed
