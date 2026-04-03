@@ -63,6 +63,12 @@ AI의 응답은 **간결한 경어체**로 작성한다. 작업지시서·방향
    규칙: 커밋 메시지 용어 직접 노출 금지. 해당 없는 섹션도 생략 금지.
 4. 비인증 rate limit: 60회/시간. 상태 점검 1회에 최대 5~6회 사용.
 
+### 핸드오프 (devlog)
+
+사용자가 "핸드오프"라고 하면 `devlog-template.md`를 크롤링하고 해당 양식에 맞춰 이번 세션 내용을 출력한다.
+- 템플릿: https://raw.githubusercontent.com/leftjap/docs/main/devlog-template.md
+- 기록 파일: C:\dev\devlog.md
+
 ### 세션 중 라우팅
 
 - 소스 파일 크롤링 전에 AGENTS.md의 크롤링 제외 목록을 확인한다. 제외 파일은 크롤링하지 않고 업로드를 요청한다.

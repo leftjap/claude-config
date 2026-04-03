@@ -3,6 +3,9 @@
 ### Added
 - 교훈 L-14 등록: Drive 폴더 변경 시 Code.js 경로 미갱신 → 데이터 분산 방지 (opus.md)
 
+### Changed
+- 운영 프로토콜에 "핸드오프(devlog)" 섹션 추가 — 사용자가 "핸드오프" 시 devlog-template.md 크롤링 후 양식 출력. (opus.md)
+
 ## 2026-04-02
 
 ### Changed
