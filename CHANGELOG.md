@@ -2,6 +2,10 @@
 
 ### Changed
 - Opus 초기 분석 단계에서 바로 발동하는 증거 확보 트리거를 `opus.md`에 추가하고, 상세 절차는 `common-rules.md`에 분리해 문서 역할과 발동 시점을 정렬했다. 파일 확보·검색 면제 조건·미검증 가설 표기를 공통 규칙으로 명시했다. (opus.md, common-rules.md)
+- 증거 확보 트리거를 common-rules.md 6-0에서 opus.md 세션 중 라우팅으로 이관 — 업로드 문서의 절차적 지시가 행동 규칙보다 준수율이 높으므로, "opus.md 업로드 세션"을 트리거로 하는 구조로 변경. (opus.md, common-rules.md)
+
+### Removed
+- common-rules.md 섹션 6-0 (증거 확보 프로토콜) 삭제 — 작업지시서 이전 단계의 규칙이 작업지시서 문서에 있으면 적시에 읽히지 않음. 트리거는 opus.md로 이관, 참조 우선순위·크롤링 규칙·혼합 참조는 잔류. (common-rules.md)
 
 ## 2026-04-03
 
